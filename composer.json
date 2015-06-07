@@ -1,0 +1,42 @@
+{
+  "name": "bitexpert/slf4psrlog",
+  "description": "Simple Logging Facade for Loggers implementing PSR-3 logging interface.",
+  "type": "library",
+  "version": "0.0.1",
+  "require": {
+    "psr/log": "^1.0"
+  },
+  "require-dev": {
+    "mikey179/vfsStream": "v1.2.0",
+    "sebastian/phpcpd": "^2.0.0",
+    "sebastian/finder-facade": "^1.1.0",
+    "phpunit/php-code-coverage": "^2.0.0",
+    "phpunit/phpunit": "^4.4.0",
+    "phing/phing": "^2.9.0",
+    "phpmd/phpmd": "^2.1.0",
+    "pdepend/pdepend": "^2.0.4",
+    "fabpot/php-cs-fixer": "v1.3",
+    "phpdocumentor/phpdocumentor": "^2.0.0"
+  },
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Stephan Hochdörfer",
+      "email": "S.Hochdoerfer@bitExpert.de"
+    }
+  ],
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "bitExpert\\Slf4PsrLog\\": "src/bitExpert/Slf4PsrLog"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "bitExpert\\Slf4PsrLog\\": "tests/bitExpert/Slf4PsrLog"
+    }
+  },
+  "provide": {
+    "psr/log-implementation": "1.0.0"
+  }
+}
