@@ -10,6 +10,8 @@
  */
 namespace bitExpert\Slf4PsrLog;
 
+use Psr\Log\NullLogger;
+
 /**
  * Unit test for {@link \bitExpert\Slf4PsrLog\LoggerFactory}.
  *
