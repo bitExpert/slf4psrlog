@@ -11,6 +11,7 @@
 namespace bitExpert\Slf4PsrLog;
 
 use Psr\Log\LoggerInterface;
+use Psr\Log\NullLogger;
 use RuntimeException;
 
 /**
