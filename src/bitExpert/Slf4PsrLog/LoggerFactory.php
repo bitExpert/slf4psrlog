@@ -39,7 +39,7 @@ class LoggerFactory
 
     /**
      * Returns a configured logger instance for the given $channel. If no FactoryCallback
-     * is registered it will return an instance of {@link \bitExpert\Slf4PsrLog\NullLogger}.
+     * is registered it will return an instance of {@link \Psr\Log\NullLogger}.
      *
      * @param $channel
      * @returns LoggerInterface
