@@ -2,7 +2,7 @@
   "name": "bitexpert/slf4psrlog",
   "description": "Simple Logging Facade for Loggers implementing PSR-3 logging interface.",
   "type": "library",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "require": {
     "psr/log": "^1.0"
   },
