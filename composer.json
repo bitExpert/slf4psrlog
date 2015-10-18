@@ -7,15 +7,10 @@
     "psr/log": "^1.0"
   },
   "require-dev": {
-    "mikey179/vfsStream": "v1.5.0",
-    "sebastian/phpcpd": "^2.0.0",
-    "sebastian/finder-facade": "^1.2.0",
     "phpunit/php-code-coverage": "^2.1.0",
     "phpunit/phpunit": "^4.7.0",
-    "phing/phing": "^2.11.0",
+    "squizlabs/php_codesniffer": "^2.3",
     "phpmd/phpmd": "^2.2.0",
-    "pdepend/pdepend": "^2.1.0",
-    "fabpot/php-cs-fixer": "v1.8.1",
     "phpdocumentor/phpdocumentor": "^2.8.0"
   },
   "license": "Apache-2.0",
