@@ -6,7 +6,8 @@ library implementing the PSR-3 logging standard.
 Installation
 ------------
 
-The preferred way of installation is through Composer. Simply add `bitexpert/slf4psrlog` as a dependency:
+The preferred way of installing `bitexpert/slf4psrlog` is through Composer. Simply add `bitexpert/slf4psrlog` as a 
+dependency:
 
 ```
 composer.phar require bitexpert/slf4psrlog
