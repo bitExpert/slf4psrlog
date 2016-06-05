@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e9586b1921e6bd28a4bdee0e5cd2d8c7",
-    "content-hash": "df90eb4259d5e40555b4744ce8c5be62",
+    "hash": "c9b11eba52400a758c68ef62a0a7e634",
+    "content-hash": "4f72216e02739ef381ae61f4a3790719",
     "packages": [
         {
             "name": "psr/log",
@@ -454,8 +454,7 @@
                 {
                     "name": "Kevin Herrera",
                     "email": "kevin@herrera.io",
-                    "homepage": "http://kevin.herrera.io/",
-                    "role": "Developer"
+                    "homepage": "http://kevin.herrera.io"
                 }
             ],
             "description": "A library for simplifying JSON linting and validation.",
@@ -514,8 +513,7 @@
                 {
                     "name": "Kevin Herrera",
                     "email": "kevin@herrera.io",
-                    "homepage": "http://kevin.herrera.io/",
-                    "role": "Developer"
+                    "homepage": "http://kevin.herrera.io"
                 }
             ],
             "description": "A library for self-updating Phars.",
@@ -784,8 +782,7 @@
             "authors": [
                 {
                     "name": "Kevin Herrera",
-                    "email": "me@kevingh.com",
-                    "homepage": "http://www.kevingh.com/"
+                    "email": "me@kevingh.com"
                 }
             ],
             "description": "A parsing and comparison library for semantic versioning.",
@@ -2366,12 +2363,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "9698fdf0a750d6887d5e7729d5cf099765b20e61"
+                "reference": "0327509ffd6d37354ec9acefcd946db7caaabdb7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/9698fdf0a750d6887d5e7729d5cf099765b20e61",
-                "reference": "9698fdf0a750d6887d5e7729d5cf099765b20e61",
+                "url": "https://api.github.com/repos/symfony/config/zipball/0327509ffd6d37354ec9acefcd946db7caaabdb7",
+                "reference": "0327509ffd6d37354ec9acefcd946db7caaabdb7",
                 "shasum": ""
             },
             "require": {
