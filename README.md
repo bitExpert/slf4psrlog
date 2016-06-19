@@ -3,6 +3,9 @@ The Simple Logging Facade for PSR-3 loggers serves as a simple facade or abstrac
 implementing the PSR-3 logging standard. To achieve true interoperability, your own code should not depend on a specific
 library implementing the PSR-3 logging standard.
 
+[![Build Status](https://travis-ci.org/bitExpert/slf4psrlog.svg?branch=release%2Fr0.1.0)](https://travis-ci.org/bitExpert/slf4psrlog)
+[![Dependency Status](https://www.versioneye.com/user/projects/5750a2a091bfda004be9238a/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5750a2a091bfda004be9238a)
+
 Installation
 ------------
 
