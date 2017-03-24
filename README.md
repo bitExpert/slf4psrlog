@@ -4,7 +4,7 @@ implementing the PSR-3 logging standard. To achieve true interoperability, your 
 library implementing the PSR-3 logging standard.
 
 [![Build Status](https://travis-ci.org/bitExpert/slf4psrlog.svg?branch=master)](https://travis-ci.org/bitExpert/slf4psrlog)
-[![Dependency Status](https://www.versioneye.com/user/projects/55788ee0346362001b000001/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55788ee0346362001b000001)
+[![Dependency Status](https://www.versioneye.com/user/projects/57d9b5361b70a7003aae980c/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/57d9b5361b70a7003aae980c)
 
 Installation
 ------------
