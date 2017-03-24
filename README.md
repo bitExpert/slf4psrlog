@@ -5,6 +5,7 @@ library implementing the PSR-3 logging standard.
 
 [![Build Status](https://travis-ci.org/bitExpert/slf4psrlog.svg?branch=master)](https://travis-ci.org/bitExpert/slf4psrlog)
 [![Dependency Status](https://www.versioneye.com/user/projects/57d9b5361b70a7003aae980c/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/57d9b5361b70a7003aae980c)
+[![Coverage Status](https://coveralls.io/repos/github/bitExpert/slf4psrlog/badge.svg?branch=master)](https://coveralls.io/github/bitExpert/slf4psrlog?branch=master)
 
 Installation
 ------------
