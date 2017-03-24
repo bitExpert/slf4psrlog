@@ -19,3 +19,5 @@ script:
   - if [[ $TEST_COVERAGE == 'true' ]]; then ./vendor/bin/phpunit --coverage-clover clover.xml ; fi
   - if [[ $TEST_COVERAGE != 'true' ]]; then ./vendor/bin/phpunit ; fi
 
+after_script:
+  - if [[ $TEST_COVERAGE == 'true' ]]; then ./vendor/bin/coveralls -v ; fi
