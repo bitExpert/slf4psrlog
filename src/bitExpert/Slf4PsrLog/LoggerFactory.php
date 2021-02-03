@@ -8,6 +8,8 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+declare(strict_types=1);
+
 namespace bitExpert\Slf4PsrLog;
 
 use Psr\Log\LoggerInterface;
@@ -32,7 +34,7 @@ class LoggerFactory
      *
      * @param callable $callback
      */
-    public static function registerFactoryCallback($callback)
+    public static function registerFactoryCallback(callable $callback): void
     {
         self::$callback = $callback;
     }
@@ -41,14 +43,14 @@ class LoggerFactory
      * Returns a configured logger instance for the given $channel. If no FactoryCallback
      * is registered it will return an instance of {@link \Psr\Log\NullLogger}.
      *
-     * @param $channel
-     * @returns LoggerInterface
+     * @param string $channel
+     * @return LoggerInterface
      * @throws RuntimeException
      */
-    public static function getLogger($channel)
+    public static function getLogger(string $channel): LoggerInterface
     {
         $callback = self::$callback;
-        if (null === $callback) {
+        if (!is_callable($callback)) {
             return new NullLogger();
         }
 

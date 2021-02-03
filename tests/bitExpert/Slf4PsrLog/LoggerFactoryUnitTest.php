@@ -8,8 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+declare(strict_types=1);
+
 namespace bitExpert\Slf4PsrLog;
 
+use PHPUnit\Framework\TestCase;
+use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 
 /**
@@ -17,12 +21,12 @@ use Psr\Log\NullLogger;
  *
  * @covers \bitExpert\Slf4PsrLog\LoggerFactory
  */
-class LoggerFactoryUnitTest extends \PHPUnit_Framework_TestCase
+class LoggerFactoryUnitTest extends TestCase
 {
     /**
      * @test
      */
-    public function returnsNullLoggerWhenCallingWithoutConfiguredCallback()
+    public function returnsNullLoggerWhenCallingWithoutConfiguredCallback(): void
     {
         $logger = LoggerFactory::getLogger('channel');
 
@@ -31,10 +35,11 @@ class LoggerFactoryUnitTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
-     * @expectedException \RuntimeException
      */
-    public function throwsRuntimeExceptionWhenCallableDoesNotReturnLoggerInstance()
+    public function throwsRuntimeExceptionWhenCallableDoesNotReturnLoggerInstance(): void
     {
+        $this->expectException(\RuntimeException::class);
+
         LoggerFactory::registerFactoryCallback(function($channel) {
             return null;
         });
@@ -45,9 +50,9 @@ class LoggerFactoryUnitTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function getLoggerCallIsDelegatedToCallable()
+    public function getLoggerCallIsDelegatedToCallable(): void
     {
-        $loggerMock = $this->getMock('\Psr\Log\LoggerInterface');
+        $loggerMock = $this->createMock(LoggerInterface::class);
         LoggerFactory::registerFactoryCallback(function($channel) use ($loggerMock) {
            return $loggerMock;
         });
@@ -60,9 +65,9 @@ class LoggerFactoryUnitTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function channelParamIsPassedToCallable()
+    public function channelParamIsPassedToCallable(): void
     {
-        $loggerMock = $this->getMock('\Psr\Log\LoggerInterface');
+        $loggerMock = $this->createMock(LoggerInterface::class);
         LoggerFactory::registerFactoryCallback(function($channel) use ($loggerMock) {
             $loggerMock->channel = $channel;
             return $loggerMock;
