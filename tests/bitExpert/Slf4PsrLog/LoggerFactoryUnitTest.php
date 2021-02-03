@@ -10,6 +10,8 @@
  */
 namespace bitExpert\Slf4PsrLog;
 
+use PHPUnit\Framework\TestCase;
+use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 
 /**
@@ -17,7 +19,7 @@ use Psr\Log\NullLogger;
  *
  * @covers \bitExpert\Slf4PsrLog\LoggerFactory
  */
-class LoggerFactoryUnitTest extends \PHPUnit_Framework_TestCase
+class LoggerFactoryUnitTest extends TestCase
 {
     /**
      * @test
@@ -31,10 +33,11 @@ class LoggerFactoryUnitTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
-     * @expectedException \RuntimeException
      */
     public function throwsRuntimeExceptionWhenCallableDoesNotReturnLoggerInstance()
     {
+        $this->expectException(\RuntimeException::class);
+
         LoggerFactory::registerFactoryCallback(function($channel) {
             return null;
         });
@@ -47,7 +50,7 @@ class LoggerFactoryUnitTest extends \PHPUnit_Framework_TestCase
      */
     public function getLoggerCallIsDelegatedToCallable()
     {
-        $loggerMock = $this->getMock('\Psr\Log\LoggerInterface');
+        $loggerMock = $this->createMock(LoggerInterface::class);
         LoggerFactory::registerFactoryCallback(function($channel) use ($loggerMock) {
            return $loggerMock;
         });
@@ -62,7 +65,7 @@ class LoggerFactoryUnitTest extends \PHPUnit_Framework_TestCase
      */
     public function channelParamIsPassedToCallable()
     {
-        $loggerMock = $this->getMock('\Psr\Log\LoggerInterface');
+        $loggerMock = $this->createMock(LoggerInterface::class);
         LoggerFactory::registerFactoryCallback(function($channel) use ($loggerMock) {
             $loggerMock->channel = $channel;
             return $loggerMock;
