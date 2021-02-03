@@ -40,7 +40,7 @@ class LoggerFactoryUnitTest extends TestCase
     {
         $this->expectException(\RuntimeException::class);
 
-        LoggerFactory::registerFactoryCallback(function($channel) {
+        LoggerFactory::registerFactoryCallback(function ($channel) {
             return null;
         });
 
@@ -53,8 +53,8 @@ class LoggerFactoryUnitTest extends TestCase
     public function getLoggerCallIsDelegatedToCallable(): void
     {
         $loggerMock = $this->createMock(LoggerInterface::class);
-        LoggerFactory::registerFactoryCallback(function($channel) use ($loggerMock) {
-           return $loggerMock;
+        LoggerFactory::registerFactoryCallback(function ($channel) use ($loggerMock) {
+            return $loggerMock;
         });
 
         $logger = LoggerFactory::getLogger('test');
@@ -68,7 +68,7 @@ class LoggerFactoryUnitTest extends TestCase
     public function channelParamIsPassedToCallable(): void
     {
         $loggerMock = $this->createMock(LoggerInterface::class);
-        LoggerFactory::registerFactoryCallback(function($channel) use ($loggerMock) {
+        LoggerFactory::registerFactoryCallback(function ($channel) use ($loggerMock) {
             $loggerMock->channel = $channel;
             return $loggerMock;
         });
