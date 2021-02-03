@@ -19,7 +19,8 @@
     "squizlabs/php_codesniffer": "^3.5.8",
     "phpstan/phpstan": "^0.12.71",
     "phpstan/extension-installer": "^1.1",
-    "infection/infection": "^0.21.0"
+    "infection/infection": "^0.21.0",
+    "roave/security-advisories": "dev-latest"
   },
   "provide": {
     "psr/log-implementation": "1.0.0"
