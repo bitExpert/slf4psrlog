@@ -8,6 +8,8 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+declare(strict_types=1);
+
 namespace bitExpert\Slf4PsrLog;
 
 use PHPUnit\Framework\TestCase;
@@ -24,7 +26,7 @@ class LoggerFactoryUnitTest extends TestCase
     /**
      * @test
      */
-    public function returnsNullLoggerWhenCallingWithoutConfiguredCallback()
+    public function returnsNullLoggerWhenCallingWithoutConfiguredCallback(): void
     {
         $logger = LoggerFactory::getLogger('channel');
 
@@ -34,7 +36,7 @@ class LoggerFactoryUnitTest extends TestCase
     /**
      * @test
      */
-    public function throwsRuntimeExceptionWhenCallableDoesNotReturnLoggerInstance()
+    public function throwsRuntimeExceptionWhenCallableDoesNotReturnLoggerInstance(): void
     {
         $this->expectException(\RuntimeException::class);
 
@@ -48,7 +50,7 @@ class LoggerFactoryUnitTest extends TestCase
     /**
      * @test
      */
-    public function getLoggerCallIsDelegatedToCallable()
+    public function getLoggerCallIsDelegatedToCallable(): void
     {
         $loggerMock = $this->createMock(LoggerInterface::class);
         LoggerFactory::registerFactoryCallback(function($channel) use ($loggerMock) {
@@ -63,7 +65,7 @@ class LoggerFactoryUnitTest extends TestCase
     /**
      * @test
      */
-    public function channelParamIsPassedToCallable()
+    public function channelParamIsPassedToCallable(): void
     {
         $loggerMock = $this->createMock(LoggerInterface::class);
         LoggerFactory::registerFactoryCallback(function($channel) use ($loggerMock) {
