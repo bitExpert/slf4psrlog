@@ -43,14 +43,14 @@ class LoggerFactory
      * Returns a configured logger instance for the given $channel. If no FactoryCallback
      * is registered it will return an instance of {@link \Psr\Log\NullLogger}.
      *
-     * @param $channel
+     * @param string $channel
      * @return LoggerInterface
      * @throws RuntimeException
      */
-    public static function getLogger($channel): LoggerInterface
+    public static function getLogger(string $channel): LoggerInterface
     {
         $callback = self::$callback;
-        if (null === $callback) {
+        if (!is_callable($callback)) {
             return new NullLogger();
         }
 
