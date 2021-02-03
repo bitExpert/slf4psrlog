@@ -1,0 +1,67 @@
+name: ci
+on:
+  pull_request:
+  push:
+    branches:
+      - "master"
+
+jobs:
+  run:
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        operating-system: ['ubuntu-latest']
+        php-versions: ['7.4', '8.0']
+        composer-prefer-lowest: [false]
+        coveralls: [false]
+        include:
+          - operating-system: 'ubuntu-latest'
+            php-versions: '7.4'
+            composer-prefer-lowest: true
+            coveralls: false
+          - operating-system: 'ubuntu-latest'
+            php-versions: '7.4'
+            composer-prefer-lowest: false
+            coveralls: true
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Configure PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          tools: composer:v2
+          coverage: xdebug
+
+      - name: Install Composer dependencies
+        run: composer install
+
+      - name: Codesniffer
+        run: composer cs-check
+
+      - name: Static code analysis
+        run: composer analyze
+
+      - name: Unittests
+        if: matrix.coveralls == false
+        run: composer test
+
+      - name: Infection for added files
+        env:
+          INFECTION_BADGE_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
+        run: |
+          git fetch --depth=1 origin $GITHUB_BASE_REF
+          ./vendor/bin/infection -j4 --git-diff-filter=A --git-diff-base=origin/$GITHUB_BASE_REF --logger-github --ignore-msi-with-no-mutations --only-covered
+
+      - name: Unittests with coverage
+        if: matrix.coveralls == true
+        run: composer coverage
+
+      - name: Coveralls report
+        if: matrix.coveralls == true
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          composer require php-coveralls/php-coveralls
+          ./vendor/bin/php-coveralls --coverage_clover=clover.xml -v
