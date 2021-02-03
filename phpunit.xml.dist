@@ -9,6 +9,7 @@
 		 processIsolation="false"
 		 stopOnFailure="true"
 		 bootstrap="tests/bootstrap.php"
+		 executionOrder="default"
 		 xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
 	<coverage processUncoveredFiles="true">
 		<include>
