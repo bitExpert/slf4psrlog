@@ -33,5 +33,17 @@
     "psr-4": {
       "bitExpert\\Slf4PsrLog\\": "tests/bitExpert/Slf4PsrLog"
     }
+  },
+  "scripts": {
+    "check": [
+      "@cs-check",
+      "@test"
+    ],
+    "cs-check": "vendor/bin/phpcs --standard=PSR2 ./src ./tests",
+    "cs-fix": "vendor/bin/phpcbf",
+    "analyze": "vendor/bin/phpstan analyze",
+    "test": "vendor/bin/phpunit",
+    "infection": "vendor/bin/infection -j4 --ignore-msi-with-no-mutations --only-covered",
+    "coverage": "vendor/bin/phpunit --coverage-clover clover.xml"
   }
 }
